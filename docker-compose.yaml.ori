@@ -1,0 +1,24 @@
+version: '2'
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: '35.236.184.158'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://35.236.184.158:9090'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2224
+    ports:
+      - '80:9090'
+      - '2224:22'
+    volumes:
+      - 'gitlab_config:/etc/gitlab'
+      - 'gitlab_logs:/var/log/gitlab'
+      - 'gitlab_data:/var/opt/gitlab'
+volumes:
+  gitlab_config:
+    driver: local
+  gitlab_logs:
+    driver: local
+  gitlab_data:
+    driver: local
