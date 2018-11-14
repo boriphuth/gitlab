@@ -14,6 +14,7 @@ services:
     container_name: gitlab
     image: gitlab/gitlab-ce:latest
     restart: always
+    privileged: true
     environment:
       GITLAB_OMNIBUS_CONFIG: |
         postgresql['enable'] = false
