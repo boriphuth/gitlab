@@ -50,5 +50,11 @@ services:
         - POSTGRES_PASSWORD=gitlab
         - POSTGRES_DB=gitlab_db
       volumes:
-        - /root/gitlab/postgres_db:/var/lib/postgresql/data
+        - postgres_db:/var/lib/postgresql/data
 
+      volumes:
+        - postgres_db:/var/lib/postgresql/data
+
+volumes:
+  postgres_db:
+    driver: local
