@@ -34,9 +34,9 @@ services:
       - '443:443'
       - '2222:22'
     volumes:
-      - /root/gitlab/gitlab_config:/etc/gitlab
-      - /root/gitlab/gitlab_logs:/var/log/gitlab
-      - /root/gitlab/gitlab_data:/var/opt/gitlab
+      - gitlab_config:/etc/gitlab
+      - gitlab_logs:/var/log/gitlab
+      - gitlab_data:/var/opt/gitlab
     depends_on:
       - postgresql
 
@@ -50,5 +50,14 @@ services:
         - POSTGRES_PASSWORD=gitlab
         - POSTGRES_DB=gitlab_db
       volumes:
-        - /root/gitlab/postgres_db:/var/lib/postgresql/data
+        - postgres_db:/var/lib/postgresql/data
 
+volumes:
+  gitlab_config:
+    driver: local
+  gitlab_logs:
+    driver: local
+  gitlab_data:
+    driver: local
+  postgres_db:
+    driver: local
