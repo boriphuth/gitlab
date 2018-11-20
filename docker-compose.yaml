@@ -17,6 +17,8 @@ services:
     user: root
     privileged: true
     restart: "no"
+    extra_hosts:
+      - "jenkins.devops.co.th:10.140.0.2"
     environment:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'http://gitlab.devops.co.th'
