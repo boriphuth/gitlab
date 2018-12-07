@@ -23,6 +23,7 @@ services:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'http://gitlab.devops.co.th'
         gitlab_rails['gitlab_shell_ssh_port'] = 2222
+        gitlab_rails['time_zone'] = 'Asia/Bangkok'
         postgresql['enable'] = false
         gitlab_rails['db_username'] = 'gitlab'
         gitlab_rails['db_password'] = 'gitlab'
